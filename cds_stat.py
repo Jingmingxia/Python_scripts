@@ -22,8 +22,7 @@ with open (sys.argv[2],"w") as fh:
   fh.write("Total_cds\tLongest_cds\tShortest_cds\tAverage_cds\n")
   fh.write("%s\t%s\t%s\t%s\n" % (num,max_cds,min_cds,avg_cds))
 
-window = 100
-def plot_cds(cds,window):
+def plot_cds(cds,window,name):
 
     x = [(i+0.5)*window for i in range(int(max(cds)/window)+1)]
     y = [0 for _ in x]
@@ -40,7 +39,8 @@ def plot_cds(cds,window):
     plt.yticks(fontsize=8)
     plt.xlabel("Protein length (aa)", fontsize=10, weight="bold")
     plt.ylabel("Number", weight="bold", fontsize=10,)
-    plt.savefig("protein_length.pdf")
-    plt.savefig("protein_length.png", dpi=900)
-
+    plt.savefig("%s.protein_length.pdf" % name)
+    plt.savefig("%s.protein_length.png" % name, dpi=900)
+window = 100
+name = sys.argv[3]
 plot_cds(cds,window)
