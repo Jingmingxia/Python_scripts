@@ -42,6 +42,6 @@ def plot_cds(cds,window,name):
     plt.ylabel("Number", weight="bold", fontsize=10,)
     plt.savefig("%s.protein_length.pdf" % name)
     plt.savefig("%s.protein_length.png" % name, dpi=900)
-window = 100
+window = sys.argv[4]
 name = sys.argv[3]
 plot_cds(cds,window)
